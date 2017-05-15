@@ -1,0 +1,6 @@
+framework module Pods_tagwaiter {
+  umbrella header "Pods-tagwaiter-umbrella.h"
+
+  export *
+  module * { export * }
+}
