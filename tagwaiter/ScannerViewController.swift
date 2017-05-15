@@ -10,8 +10,9 @@ import AVFoundation
 import UIKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
+    
+    @IBOutlet var sendQRButton: UIButton!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -67,7 +68,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             captureSession?.startRunning()
             
             // Move the message label and top bar to the front
-            view.bringSubview(toFront: messageLabel)
+            view.bringSubview(toFront: sendQRButton)
             view.bringSubview(toFront: topbar)
             
             // Initialize QR Code Frame to highlight the QR code
@@ -78,8 +79,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 qrCodeFrameView.layer.borderWidth = 2
                 view.addSubview(qrCodeFrameView)
                 view.bringSubview(toFront: qrCodeFrameView)
+                
             }
             
+            sendQRButton.isEnabled = false
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
             print(error)
@@ -95,12 +98,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     // MARK: - AVCaptureMetadataOutputObjectsDelegate Methods
     
+    var qrCode: String!
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No se detecta QR"
             return
         }
         
@@ -113,9 +117,32 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                qrCode = metadataObj.stringValue
+                sendQRButton.isEnabled = true
+                sendQRButton.backgroundColor = UIColor.green
+                sendQRButton.setTitle("Escanear", for: .normal)
+                sendQRButton.alpha = 0.9
             }
         }
     }
     
+    
+    @IBAction func sendQR(_ sender: Any) {
+        performSegue(withIdentifier: "passQrCode", sender: qrCode)
+    }
+    
+    //Pass code to ViewController
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "passQrCode"{
+            
+            
+            if let destination = segue.destination as? ViewController {
+                destination.qrCode = qrCode
+                destination.haveQrCode = true
+            }
+        }
+    
+    }
 }
