@@ -132,15 +132,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     //Pass code to ViewController
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "passQrCode"{
             
-            
             if let destination = segue.destination as? ViewController {
                 destination.qrCode = qrCode
                 destination.haveQrCode = true
+                self.dismiss(animated: true)
             }
         }
     

@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "LogoLogin.pdf",
+      "filename" : "Destacado.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Destacado@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Destacado@3x.png",
       "scale" : "3x"
     }
   ],

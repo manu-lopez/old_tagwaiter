@@ -59,6 +59,14 @@
                                             <color key="textColor" red="0.99226981401443481" green="0.9961743950843811" blue="0.99166792631149292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amb-db-cl1">
+                                            <rect key="frame" x="164" y="607" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <segue destination="zM4-bN-1Qw" kind="presentation" id="ELs-48-I88"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <blurEffect style="light"/>
@@ -152,10 +160,89 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="138.98050974512745"/>
         </scene>
+        <!--Menu-->
+        <scene sceneID="HRS-EV-Noz">
+            <objects>
+                <viewController title="Menu" id="lGV-cM-Wy0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kNJ-Qt-r03"/>
+                        <viewControllerLayoutGuide type="bottom" id="NgE-ZQ-alY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N1T-h7-x9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Menu" image="Menu" id="29z-Gs-meL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-Ku-k6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="1567"/>
+        </scene>
+        <!--Destacados-->
+        <scene sceneID="yQY-wd-iGk">
+            <objects>
+                <viewController title="Destacados" id="Ffv-HA-wZU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SPP-tw-qD8"/>
+                        <viewControllerLayoutGuide type="bottom" id="mHW-R3-ohq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6os-tn-eg6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Destacados" image="Destacado" id="RhU-3O-bRP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qZb-fc-9na" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-676" y="1567"/>
+        </scene>
+        <!--Cuenta-->
+        <scene sceneID="thG-Ou-wUP">
+            <objects>
+                <viewController title="Cuenta" id="Fmz-nv-z17" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TDa-2I-Amq"/>
+                        <viewControllerLayoutGuide type="bottom" id="0v3-G6-SGy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8r-yh-ya4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Cuenta" image="Cuenta" id="0Nc-mQ-cKe"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fu5-bC-BVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="817" y="1567"/>
+        </scene>
+        <!--Inicio-->
+        <scene sceneID="Oa6-RF-8qZ">
+            <objects>
+                <tabBarController title="Inicio" id="zM4-bN-1Qw" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="nGT-MZ-62J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ffv-HA-wZU" kind="relationship" relationship="viewControllers" id="r2e-H1-HQs"/>
+                        <segue destination="lGV-cM-Wy0" kind="relationship" relationship="viewControllers" id="Fc4-SI-4A5"/>
+                        <segue destination="Fmz-nv-z17" kind="relationship" relationship="viewControllers" id="dml-FH-MV9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p15-W2-aWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="804"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CameraButton" width="84" height="84"/>
+        <image name="Cuenta" width="22" height="12"/>
+        <image name="Destacado" width="24" height="23"/>
         <image name="LogoLogin" width="200" height="372"/>
+        <image name="Menu" width="23" height="22"/>
         <image name="backgroundLogin" width="2400" height="1585"/>
     </resources>
 </document>
