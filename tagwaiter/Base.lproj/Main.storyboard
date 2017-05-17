@@ -49,7 +49,7 @@
                                             <state key="normal" image="CameraButton"/>
                                             <connections>
                                                 <action selector="buttonQR:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOS-oD-MWy"/>
-                                                <segue destination="McH-Wm-bCw" kind="presentation" id="mLq-eR-8gx"/>
+                                                <segue destination="McH-Wm-bCw" kind="show" id="SOc-jp-Dos"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pulse el botón para escanear el QR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdL-pN-WN1">
@@ -59,14 +59,6 @@
                                             <color key="textColor" red="0.99226981401443481" green="0.9961743950843811" blue="0.99166792631149292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amb-db-cl1">
-                                            <rect key="frame" x="164" y="607" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <segue destination="zM4-bN-1Qw" kind="presentation" id="ELs-48-I88"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </view>
                                 <blurEffect style="light"/>
@@ -114,7 +106,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="eO8-Ut-pRn" kind="unwind" unwindAction="unwindToHomeScreenWithSegue:" id="hTW-gi-reV"/>
+                                            <action selector="CloseScanner:" destination="McH-Wm-bCw" eventType="touchUpInside" id="td8-fE-hjG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -152,13 +144,11 @@
                     <connections>
                         <outlet property="sendQRButton" destination="kux-qC-zv4" id="rYq-MF-7Pr"/>
                         <outlet property="topbar" destination="gxe-Wf-X1G" id="Dmv-9j-qQv"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="passQrCode" id="U0V-Oo-n1i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="da7-yu-2vT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="eO8-Ut-pRn" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="877.60000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1098" y="139"/>
         </scene>
         <!--Menu-->
         <scene sceneID="HRS-EV-Noz">
