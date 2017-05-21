@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanear" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNV-yd-YO2">
-                                        <rect key="frame" x="146.5" y="23" width="82.5" height="24"/>
+                                        <rect key="frame" x="146" y="23" width="83" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -161,13 +161,39 @@
                     <view key="view" contentMode="scaleToFill" id="N1T-h7-x9e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poh-eO-obC">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Menu" id="hNL-Mz-TRY">
+                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="mnl-IW-ij8">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fA-uo-7aS">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6fA-uo-7aS" secondAttribute="trailing" id="3sv-XG-030"/>
+                            <constraint firstItem="poh-eO-obC" firstAttribute="trailing" secondItem="6fA-uo-7aS" secondAttribute="trailing" id="QXT-Xn-F8W"/>
+                            <constraint firstItem="poh-eO-obC" firstAttribute="leading" secondItem="6fA-uo-7aS" secondAttribute="leading" id="UpV-rr-P6K"/>
+                            <constraint firstItem="6fA-uo-7aS" firstAttribute="leading" secondItem="N1T-h7-x9e" secondAttribute="leading" id="XRT-ne-DUy"/>
+                            <constraint firstItem="NgE-ZQ-alY" firstAttribute="top" secondItem="6fA-uo-7aS" secondAttribute="bottom" id="Yp9-5L-sAy"/>
+                            <constraint firstItem="poh-eO-obC" firstAttribute="top" secondItem="kNJ-Qt-r03" secondAttribute="bottom" id="uct-ms-Gf4"/>
+                            <constraint firstItem="6fA-uo-7aS" firstAttribute="top" secondItem="poh-eO-obC" secondAttribute="bottom" id="wX4-KI-jZE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Menu" image="Menu" id="29z-Gs-meL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-Ku-k6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="1567"/>
+            <point key="canvasLocation" x="88.799999999999997" y="1566.5667166416792"/>
         </scene>
         <!--Destacados-->
         <scene sceneID="yQY-wd-iGk">
@@ -180,7 +206,33 @@
                     <view key="view" contentMode="scaleToFill" id="6os-tn-eg6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-Yq-0Lb">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Destacados" id="Hfx-lz-CbR">
+                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="eUv-fv-Jt7">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LVx-Fs-qzW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LVx-Fs-qzW" firstAttribute="top" secondItem="nUl-Yq-0Lb" secondAttribute="bottom" id="B1U-ij-B5Q"/>
+                            <constraint firstAttribute="trailing" secondItem="LVx-Fs-qzW" secondAttribute="trailing" id="RxE-eb-LFB"/>
+                            <constraint firstItem="mHW-R3-ohq" firstAttribute="top" secondItem="LVx-Fs-qzW" secondAttribute="bottom" id="XIx-eH-pbm"/>
+                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="leading" secondItem="LVx-Fs-qzW" secondAttribute="leading" id="YKi-zr-CD7"/>
+                            <constraint firstItem="LVx-Fs-qzW" firstAttribute="leading" secondItem="6os-tn-eg6" secondAttribute="leading" id="gqx-9B-12u"/>
+                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="trailing" secondItem="LVx-Fs-qzW" secondAttribute="trailing" id="obq-yY-lb4"/>
+                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="top" secondItem="SPP-tw-qD8" secondAttribute="bottom" id="yE3-7u-RLC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Destacados" image="Destacado" id="RhU-3O-bRP"/>
                 </viewController>
@@ -199,6 +251,20 @@
                     <view key="view" contentMode="scaleToFill" id="f8r-yh-ya4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vec-dz-fXR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Cuenta" id="PHL-zr-j9p">
+                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="reY-DB-hLY">
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Cuenta" image="Cuenta" id="0Nc-mQ-cKe"/>
@@ -210,7 +276,7 @@
         <!--Inicio-->
         <scene sceneID="Oa6-RF-8qZ">
             <objects>
-                <tabBarController title="Inicio" id="zM4-bN-1Qw" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Inicio" title="Inicio" id="zM4-bN-1Qw" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="nGT-MZ-62J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -228,6 +294,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CallWaiter" width="18" height="18"/>
         <image name="CameraButton" width="84" height="84"/>
         <image name="Cuenta" width="22" height="12"/>
         <image name="Destacado" width="24" height="23"/>

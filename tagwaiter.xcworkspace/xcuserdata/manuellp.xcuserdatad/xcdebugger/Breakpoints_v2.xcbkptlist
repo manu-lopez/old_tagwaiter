@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tagwaiter/ScannerViewController.swift"
-            timestampString = "516738694.61543"
+            timestampString = "516796414.900414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "CloseScanner(_:)"
             landmarkType = "7">
          </BreakpointContent>

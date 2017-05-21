@@ -12,9 +12,11 @@ import CoreLocation //obtener localizacion usuario
 import Alamofire //hacer consultas al servidor
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CLLocationManagerDelegate {
+    
     @IBOutlet var topbar: UIView!
     
     @IBOutlet var sendQRButton: UIButton!
+    
     
     let locationManager = CLLocationManager()
     var currentLocation: CLLocation!
@@ -132,7 +134,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             if metadataObj.stringValue != nil {
                 qrCode = metadataObj.stringValue!
-//                verifyConnection(code: metadataObj.stringValue!, latitud: currentLocation.coordinate.latitude, longitud: currentLocation.coordinate.longitude)
                 
                 sendQRButton.isEnabled = true
                 sendQRButton.backgroundColor = UIColor.green
@@ -149,13 +150,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     @IBAction func sendQR(_ sender: Any) {
         
+        captureSession?.stopRunning()
+        sendQRButton.backgroundColor = UIColor.blue
         sendQRButton.setTitle("Escaneando...", for: .normal)
+        
         verifyConnection(code: qrCode!, latitud: currentLocation.coordinate.latitude, longitud: currentLocation.coordinate.longitude)
     }
     
     func verifyConnection(code: String, latitud: Double, longitud: Double)
     {
-        
+
         Alamofire.request("http://api.disainin.com/foodtags/1/access/qr/\(code)/\(latitud)/\(longitud)").responseJSON { response in
             
             if let JSON = response.result.value as? [String: Any] {
@@ -177,10 +181,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     
                     if valid == true {
                         
-                        let yes = UIAlertController(title: "Has conectado", message: "Al fin tenemos disco duro!", preferredStyle: .alert)
-                        yes.addAction(UIAlertAction(title: "Dale", style: .default, handler: self.novalid))
-                        
-                        self.present(yes, animated: true, completion: nil)
+                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                        let inicioVC = storyBoard.instantiateViewController(withIdentifier: "Inicio")
+                        self.present(inicioVC, animated: true, completion: nil)
                         
                     } else {
                         
@@ -188,17 +191,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         alert.addAction(UIAlertAction(title: "Probar de nuevo", style: .default, handler: self.novalid))
                         
                         self.present(alert, animated: true, completion: nil)
-
-
                     }
                 }
             }
         }
     }
 
-    //handler para alert
+    
+    //funcion para el alert de no conectar
     func novalid(action: UIAlertAction){
-//        dismiss(animated: true, completion: nil)
-        self.viewDidLoad()
+//        dismiss(animated: true, completion: nil) //de esta manera cierra la pantalla
+        self.viewDidLoad() //de esta forma recarga la pantalla (aunque con un poco de lag)
     }
 }

@@ -11,6 +11,8 @@
 		9DF187CC6017D778467F08AB /* Pods_tagwaiter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E501036A5F5A2FEF739727A6 /* Pods_tagwaiter.framework */; };
 		A76A05D544EC7A15D56822CD /* Pods_tagwaiterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94FE776BB5BFA3A59093FDFC /* Pods_tagwaiterUITests.framework */; };
 		DE0677631EACC7A800A1CD60 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0677621EACC7A800A1CD60 /* ScannerViewController.swift */; };
+		DE3EEC6B1ED1AC5800BC2466 /* destacadosTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EEC691ED1AC5800BC2466 /* destacadosTVC.swift */; };
+		DE3EEC6C1ED1AC5800BC2466 /* destacadosTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE3EEC6A1ED1AC5800BC2466 /* destacadosTVC.xib */; };
 		DEA133C01E8C6D8F000D36BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA133BF1E8C6D8F000D36BB /* AppDelegate.swift */; };
 		DEA133C21E8C6D8F000D36BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA133C11E8C6D8F000D36BB /* ViewController.swift */; };
 		DEA133C51E8C6D8F000D36BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA133C31E8C6D8F000D36BB /* Main.storyboard */; };
@@ -46,6 +48,8 @@
 		94FE776BB5BFA3A59093FDFC /* Pods_tagwaiterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tagwaiterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3E903317E0274EB809053DD /* Pods-tagwaiterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tagwaiterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tagwaiterUITests/Pods-tagwaiterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0677621EACC7A800A1CD60 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		DE3EEC691ED1AC5800BC2466 /* destacadosTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = destacadosTVC.swift; sourceTree = "<group>"; };
+		DE3EEC6A1ED1AC5800BC2466 /* destacadosTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = destacadosTVC.xib; sourceTree = "<group>"; };
 		DEA133BC1E8C6D8F000D36BB /* tagwaiter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tagwaiter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA133BF1E8C6D8F000D36BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA133C11E8C6D8F000D36BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 				DEB6BA161EC918D00020BC25 /* extras */,
 				DEA133C11E8C6D8F000D36BB /* ViewController.swift */,
 				DEA133C31E8C6D8F000D36BB /* Main.storyboard */,
+				DE3EEC691ED1AC5800BC2466 /* destacadosTVC.swift */,
+				DE3EEC6A1ED1AC5800BC2466 /* destacadosTVC.xib */,
 				DEA133C61E8C6D8F000D36BB /* Assets.xcassets */,
 				DE0677621EACC7A800A1CD60 /* ScannerViewController.swift */,
 			);
@@ -297,6 +303,7 @@
 			files = (
 				DEA133CA1E8C6D8F000D36BB /* LaunchScreen.storyboard in Resources */,
 				DEA133C71E8C6D8F000D36BB /* Assets.xcassets in Resources */,
+				DE3EEC6C1ED1AC5800BC2466 /* destacadosTVC.xib in Resources */,
 				DEA133C51E8C6D8F000D36BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +469,7 @@
 			files = (
 				DEA133C21E8C6D8F000D36BB /* ViewController.swift in Sources */,
 				DE0677631EACC7A800A1CD60 /* ScannerViewController.swift in Sources */,
+				DE3EEC6B1ED1AC5800BC2466 /* destacadosTVC.swift in Sources */,
 				DEA133C01E8C6D8F000D36BB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

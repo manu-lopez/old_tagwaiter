@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../Downloads/location.gpx">
+   </FileRef>
+   <FileRef
       location = "group:tagwaiter.xcodeproj">
    </FileRef>
    <FileRef
