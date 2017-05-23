@@ -46,8 +46,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         //opciones boton
         sendQRButton.isEnabled = false
-        sendQRButton.alpha = 0.6
-        sendQRButton.backgroundColor = UIColor.lightGray
+        sendQRButton.alpha = 1
+        sendQRButton.backgroundColor = UIColor.black
         sendQRButton.setTitle("Escanea un QR", for: .normal)
 
         
@@ -138,7 +138,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 sendQRButton.isEnabled = true
                 sendQRButton.backgroundColor = UIColor.green
                 sendQRButton.setTitle("Escanear", for: .normal)
-                sendQRButton.alpha = 0.9
+                sendQRButton.alpha = 1
             }
         }
     }
@@ -200,7 +200,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     //funcion para el alert de no conectar
     func novalid(action: UIAlertAction){
-//        dismiss(animated: true, completion: nil) //de esta manera cierra la pantalla
-        self.viewDidLoad() //de esta forma recarga la pantalla (aunque con un poco de lag)
+        self.viewDidLoad()
     }
 }
