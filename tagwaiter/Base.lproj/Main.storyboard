@@ -152,155 +152,162 @@
             <point key="canvasLocation" x="1098" y="139"/>
         </scene>
         <!--Menu-->
-        <scene sceneID="HRS-EV-Noz">
+        <scene sceneID="DDu-6N-Cu9">
             <objects>
-                <viewController title="Menu" id="lGV-cM-Wy0" customClass="MenuTVC" customModule="tagwaiter" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="kNJ-Qt-r03"/>
-                        <viewControllerLayoutGuide type="bottom" id="NgE-ZQ-alY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="N1T-h7-x9e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                <tableViewController id="MZc-hW-J2M" customClass="MenuVC" customModule="tagwaiter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zDY-gf-ksC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poh-eO-obC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <navigationItem title="Menu" id="hNL-Mz-TRY">
-                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="mnl-IW-ij8">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6fA-uo-7aS">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6fA-uo-7aS" secondAttribute="trailing" id="3sv-XG-030"/>
-                            <constraint firstItem="poh-eO-obC" firstAttribute="trailing" secondItem="6fA-uo-7aS" secondAttribute="trailing" id="QXT-Xn-F8W"/>
-                            <constraint firstItem="poh-eO-obC" firstAttribute="leading" secondItem="6fA-uo-7aS" secondAttribute="leading" id="UpV-rr-P6K"/>
-                            <constraint firstItem="6fA-uo-7aS" firstAttribute="leading" secondItem="N1T-h7-x9e" secondAttribute="leading" id="XRT-ne-DUy"/>
-                            <constraint firstItem="NgE-ZQ-alY" firstAttribute="top" secondItem="6fA-uo-7aS" secondAttribute="bottom" id="Yp9-5L-sAy"/>
-                            <constraint firstItem="poh-eO-obC" firstAttribute="top" secondItem="kNJ-Qt-r03" secondAttribute="bottom" id="uct-ms-Gf4"/>
-                            <constraint firstItem="6fA-uo-7aS" firstAttribute="top" secondItem="poh-eO-obC" secondAttribute="bottom" id="wX4-KI-jZE"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Menu" image="MenuIcono" id="29z-Gs-meL"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hOC-39-ENh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOC-39-ENh" id="stx-Pa-MOq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="MZc-hW-J2M" id="8dW-xJ-nir"/>
+                            <outlet property="delegate" destination="MZc-hW-J2M" id="9Ie-hL-7wq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Menu" id="uJm-zC-iEo">
+                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="CLP-NW-kCM">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="6fA-uo-7aS" id="vFL-XO-ljE"/>
+                        <segue destination="5gg-Jg-RiU" kind="show" identifier="sendCategorieID" id="2a3-mR-K53"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-Ku-k6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SBN-Zb-Q7L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88.799999999999997" y="1566.5667166416792"/>
+            <point key="canvasLocation" x="4044" y="138.98050974512745"/>
+        </scene>
+        <!--ItemMenu-->
+        <scene sceneID="ztG-yM-9zl">
+            <objects>
+                <tableViewController title="ItemMenu" id="5gg-Jg-RiU" customClass="MenuCategorieVC" customModule="tagwaiter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n2p-Te-5YK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fwB-e2-Coh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fwB-e2-Coh" id="ynw-qo-hRG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5gg-Jg-RiU" id="mHd-lQ-0DF"/>
+                            <outlet property="delegate" destination="5gg-Jg-RiU" id="u6T-m6-Ig0"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fXM-lf-K6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4838" y="139"/>
         </scene>
         <!--Destacados-->
-        <scene sceneID="yQY-wd-iGk">
+        <scene sceneID="oXP-Zn-uRE">
             <objects>
-                <viewController title="Destacados" id="Ffv-HA-wZU" customClass="destacadosTVC" customModule="tagwaiter" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SPP-tw-qD8"/>
-                        <viewControllerLayoutGuide type="bottom" id="mHW-R3-ohq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6os-tn-eg6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                <tableViewController id="H22-Cn-2nN" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="b8L-VW-Lu1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUl-Yq-0Lb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <navigationItem title="Destacados" id="Hfx-lz-CbR">
-                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="eUv-fv-Jt7">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LVx-Fs-qzW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="LVx-Fs-qzW" firstAttribute="top" secondItem="nUl-Yq-0Lb" secondAttribute="bottom" id="B1U-ij-B5Q"/>
-                            <constraint firstAttribute="trailing" secondItem="LVx-Fs-qzW" secondAttribute="trailing" id="RxE-eb-LFB"/>
-                            <constraint firstItem="mHW-R3-ohq" firstAttribute="top" secondItem="LVx-Fs-qzW" secondAttribute="bottom" id="XIx-eH-pbm"/>
-                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="leading" secondItem="LVx-Fs-qzW" secondAttribute="leading" id="YKi-zr-CD7"/>
-                            <constraint firstItem="LVx-Fs-qzW" firstAttribute="leading" secondItem="6os-tn-eg6" secondAttribute="leading" id="gqx-9B-12u"/>
-                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="trailing" secondItem="LVx-Fs-qzW" secondAttribute="trailing" id="obq-yY-lb4"/>
-                            <constraint firstItem="nUl-Yq-0Lb" firstAttribute="top" secondItem="SPP-tw-qD8" secondAttribute="bottom" id="yE3-7u-RLC"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Destacados" image="Destacado" id="RhU-3O-bRP"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qZb-fc-9na" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ygT-KU-zxu">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ygT-KU-zxu" id="Dp1-SR-Uop">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="H22-Cn-2nN" id="v3V-Xa-ta1"/>
+                            <outlet property="delegate" destination="H22-Cn-2nN" id="ezi-5F-Ulq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Destacados" id="e8p-Je-6Ba">
+                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="EE8-Mg-Bja">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6sX-aY-ram" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676" y="1567"/>
+            <point key="canvasLocation" x="4044" y="896.40179910044981"/>
         </scene>
-        <!--Cuenta-->
-        <scene sceneID="thG-Ou-wUP">
+        <!--Tab Bar Controller-->
+        <scene sceneID="ipN-si-6PL">
             <objects>
-                <viewController title="Cuenta" id="Fmz-nv-z17" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TDa-2I-Amq"/>
-                        <viewControllerLayoutGuide type="bottom" id="0v3-G6-SGy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="f8r-yh-ya4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vec-dz-fXR">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <navigationItem title="Cuenta" id="PHL-zr-j9p">
-                                        <barButtonItem key="rightBarButtonItem" image="CallWaiter" id="reY-DB-hLY">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Cuenta" image="Cuenta" id="0Nc-mQ-cKe"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fu5-bC-BVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="817" y="1567"/>
-        </scene>
-        <!--Inicio-->
-        <scene sceneID="Oa6-RF-8qZ">
-            <objects>
-                <tabBarController storyboardIdentifier="Inicio" title="Inicio" id="zM4-bN-1Qw" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="nGT-MZ-62J">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                <tabBarController storyboardIdentifier="Inicio" automaticallyAdjustsScrollViewInsets="NO" id="4dE-pv-ftf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2Af-6r-D8l">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Ffv-HA-wZU" kind="relationship" relationship="viewControllers" id="r2e-H1-HQs"/>
-                        <segue destination="lGV-cM-Wy0" kind="relationship" relationship="viewControllers" id="Fc4-SI-4A5"/>
-                        <segue destination="Fmz-nv-z17" kind="relationship" relationship="viewControllers" id="dml-FH-MV9"/>
+                        <segue destination="atr-Uq-yy0" kind="relationship" relationship="viewControllers" id="eLZ-HH-CG3"/>
+                        <segue destination="3g6-ab-rL8" kind="relationship" relationship="viewControllers" id="hI0-Me-YCU"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="p15-W2-aWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Guo-wz-ooE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="89" y="804"/>
+            <point key="canvasLocation" x="2165.5999999999999" y="138.98050974512745"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="LoH-OV-8aR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3g6-ab-rL8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Menu" image="MenuIcono" selectedImage="MenuIcono" id="SW6-Xf-lbs"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7q5-eu-Boh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MZc-hW-J2M" kind="relationship" relationship="rootViewController" id="DD9-VI-e9H"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UO2-Hn-iO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3104.8000000000002" y="138.98050974512745"/>
+        </scene>
+        <!--Destacados-->
+        <scene sceneID="FhZ-Ye-HD7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="atr-Uq-yy0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Destacados" image="Destacado" selectedImage="Destacado" id="Xx1-eI-Hsf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kGh-6E-RjC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H22-Cn-2nN" kind="relationship" relationship="rootViewController" id="UVc-k6-aeQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRm-s3-9Ye" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3104.8000000000002" y="895.50224887556226"/>
         </scene>
     </scenes>
     <resources>
         <image name="CallWaiter" width="18" height="18"/>
         <image name="CameraButton" width="84" height="84"/>
-        <image name="Cuenta" width="22" height="12"/>
         <image name="Destacado" width="24" height="23"/>
         <image name="LogoLogin" width="200" height="372"/>
         <image name="MenuIcono" width="23" height="22"/>

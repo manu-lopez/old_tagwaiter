@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemMenu" customModule="tagwaiter" customModuleProvider="target">
+            <connections>
+                <outlet property="ProductImg" destination="Csc-nF-rfT" id="wQA-lF-95f"/>
+                <outlet property="ProductName" destination="Rad-Ay-wpM" id="u5G-na-ISa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="375" id="xNC-EH-Hc4">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xNC-EH-Hc4" id="krR-OU-DgI">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Csc-nF-rfT">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="198"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rad-Ay-wpM">
+                        <rect key="frame" x="0.0" y="206" width="250" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="250" id="NVB-tg-Ns3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Csc-nF-rfT" secondAttribute="bottom" constant="51.5" id="2mu-Dx-OEr"/>
+                    <constraint firstItem="Csc-nF-rfT" firstAttribute="top" secondItem="krR-OU-DgI" secondAttribute="top" id="4if-iC-JsS"/>
+                    <constraint firstAttribute="bottom" secondItem="Rad-Ay-wpM" secondAttribute="bottom" id="BTU-FR-jQe"/>
+                    <constraint firstItem="Csc-nF-rfT" firstAttribute="leading" secondItem="krR-OU-DgI" secondAttribute="leading" id="EiK-3Q-4ma"/>
+                    <constraint firstAttribute="trailing" secondItem="Rad-Ay-wpM" secondAttribute="trailing" id="kMT-J0-cQj"/>
+                    <constraint firstItem="Rad-Ay-wpM" firstAttribute="top" secondItem="Csc-nF-rfT" secondAttribute="bottom" constant="8" id="mJn-Mk-2Pp"/>
+                    <constraint firstAttribute="trailing" secondItem="Csc-nF-rfT" secondAttribute="trailing" id="oHe-6a-FxK"/>
+                    <constraint firstItem="Rad-Ay-wpM" firstAttribute="leading" secondItem="krR-OU-DgI" secondAttribute="leading" id="swt-07-h0h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-22" y="-69"/>
+        </tableViewCell>
+    </objects>
+</document>
