@@ -159,9 +159,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func verifyConnection(code: String, latitud: Double, longitud: Double)
     {
-
+        
         Alamofire.request("http://api.disainin.com/foodtags/1/access/qr/\(code)/\(latitud)/\(longitud)").responseJSON { response in
             
+            
+            //guardamos los valores de sesion, nos harán falta luego
             if let JSON = response.result.value as? [String: Any] {
                 if let name = JSON["name"] as? String {
                     UserDefaults.standard.set(name, forKey: "shopName")
@@ -180,6 +182,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                     UserDefaults.standard.set(valid, forKey: "valid")
                     
                     if valid == true {
+                        //obtenemos el lenguaje del móvil, para mostrar los textos correspondientes
+                        UserDefaults.standard.set(NSLocale.current.identifier, forKey: "lang")
                         
                         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                         let inicioVC = storyBoard.instantiateViewController(withIdentifier: "Inicio")

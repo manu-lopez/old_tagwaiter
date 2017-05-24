@@ -154,7 +154,7 @@
         <!--Menu-->
         <scene sceneID="HRS-EV-Noz">
             <objects>
-                <viewController title="Menu" id="lGV-cM-Wy0" sceneMemberID="viewController">
+                <viewController title="Menu" id="lGV-cM-Wy0" customClass="MenuTVC" customModule="tagwaiter" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kNJ-Qt-r03"/>
                         <viewControllerLayoutGuide type="bottom" id="NgE-ZQ-alY"/>
@@ -191,6 +191,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Menu" image="MenuIcono" id="29z-Gs-meL"/>
+                    <connections>
+                        <outlet property="tableView" destination="6fA-uo-7aS" id="vFL-XO-ljE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-Ku-k6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

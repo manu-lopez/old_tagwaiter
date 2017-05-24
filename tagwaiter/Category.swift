@@ -6,6 +6,7 @@
 //  Copyright © 2017 Manu. All rights reserved.
 //
 
+import Foundation
 import ObjectMapper
 
 class Category: Mappable{

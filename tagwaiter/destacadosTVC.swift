@@ -10,29 +10,37 @@ import AlamofireObjectMapper
 import ObjectMapper
 
 class destacadosTVC: UIViewController, UITableViewDelegate {
-    
-    let url = "http://api.disainin.com/foodtags/1/shop"
-    let header: HTTPHeaders = [
-        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
-    ]
-    
-    override func viewDidLoad() {
-        getDataFromDB()
-    }
-    
-    func getDataFromDB(){
-        
-        Alamofire.request(url, headers: header).responseObject { (response: DataResponse<Category>) in
-            
-            let weatherResponse = response.result.value
-            print(weatherResponse?.id)
-            
-            if let threeDayForecast = weatherResponse?.sizes{
-                for forecast in threeDayForecast {
-                    print(forecast.id)
-                    print(forecast.dimension)
-                }
-            }
-        }
-    }
+
+//    let lang = UserDefaults.standard.value(forKey: "lang") as! String
+//    let url = "http://api.disainin.com/foodtags/1/shop"
+//    let header: HTTPHeaders = [
+//        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
+//    ]
+//    
+//    override func viewDidLoad() {
+//        getDataFromDB()
+//    }
+//    
+//    func getDataFromDB(){
+//        
+//        
+//        Alamofire.request(url, headers: header).responseObject { (response: DataResponse<Shop>) in
+//            
+//            let shop = response.result.value
+//            print(type(of: shop))
+//            
+//            if let categories = shop?.categories {
+//                print(type(of: categories))
+//                for a in categories{
+//                    print(type(of: a))
+//                    let name = a.name
+//                    for a in name!{
+//                        if a.language == self.lang {
+//                            print(a.text)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
