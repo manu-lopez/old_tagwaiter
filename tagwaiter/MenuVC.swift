@@ -12,16 +12,18 @@ import Alamofire
 
 class MenuVC: UITableViewController {
     
+    //Cabezera y URL
     let url = "http://api.disainin.com/foodtags/1/shop"
     let header: HTTPHeaders = [
         "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
     ]
     
     
-    var categories = [Category]()
-    var numCategories = 0
-    var categorieName = [String]()
-    
+    var categories = [Category]() //Objeto con todos los datos de las categorias
+    var numCategories = 0 //Cantidad de categorias que tiene
+    var categorieName = [String]() //Conjunto de categorias del lugar
+    var nameSelected = "" //Nombre categoria que pasamos a otra view
+    var idSelected = 0 //Id categoria seleccionada
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +34,19 @@ class MenuVC: UITableViewController {
             self.categories = (shop?.categories)!
             self.numCategories = (shop?.categories?.count)!
             
-            for categorie in self.categories{
-                for data in categorie.name!{
+            
+            for categorie in self.categories{ //recorremos las distintas categorias
+                for data in categorie.name!{ //recorremos los datos de una categoria
+                    // si el lenguaje es el mismo que el de nuestro dispositivo, nos muestra el nombre en ese idioma
                     if data.language == UserDefaults.standard.value(forKey: "lang") as? String{
+                        //guardamos los nombres en un array para mostralos luego
                         self.categorieName.append(data.text!)
+                    
                     }
                 }
             }
             
+            //Actualizamos la tabla para que se muestren los campos
             self.tableView.reloadData()
         }
     }
@@ -57,12 +64,17 @@ class MenuVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "sendCategorieID", sender: indexPath.row)
+        self.nameSelected = categorieName[indexPath.row]
+        self.idSelected = categories[indexPath.row].id!
+        
+        performSegue(withIdentifier: "sendCategorieID", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let view = segue.destination as! MenuCategorieVC
         
-        view.categorieID = sender as! Int
+        view.categorieID = idSelected //ID categoria seleccionada
+        view.categorieName = nameSelected //Nombre categoria seleccionada
+
     }
 }

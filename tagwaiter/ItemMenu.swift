@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemMenu: UITableViewController {
+class ItemMenu: UITableViewCell {
         
     @IBOutlet weak var ProductImg: UIImageView!
     @IBOutlet weak var ProductName: UILabel!

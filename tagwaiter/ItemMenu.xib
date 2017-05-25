@@ -16,7 +16,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="375" id="xNC-EH-Hc4">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="375" id="xNC-EH-Hc4" customClass="ItemMenu" customModule="tagwaiter" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xNC-EH-Hc4" id="krR-OU-DgI">
@@ -47,7 +47,7 @@
                     <constraint firstItem="Rad-Ay-wpM" firstAttribute="leading" secondItem="krR-OU-DgI" secondAttribute="leading" id="swt-07-h0h"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-22" y="-69"/>
+            <point key="canvasLocation" x="-87" y="-70"/>
         </tableViewCell>
     </objects>
 </document>
