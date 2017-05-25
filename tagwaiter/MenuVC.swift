@@ -25,8 +25,12 @@ class MenuVC: UITableViewController {
     var nameSelected = "" //Nombre categoria que pasamos a otra view
     var idSelected = 0 //Id categoria seleccionada
     
+    var indicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        showIndicator()
         
         Alamofire.request(url, headers: header).responseObject { (response: DataResponse<Shop>) in
             
@@ -45,6 +49,8 @@ class MenuVC: UITableViewController {
                     }
                 }
             }
+            
+            self.indicator.stopAnimating()
             
             //Actualizamos la tabla para que se muestren los campos
             self.tableView.reloadData()
@@ -76,5 +82,15 @@ class MenuVC: UITableViewController {
         view.categorieID = idSelected //ID categoria seleccionada
         view.categorieName = nameSelected //Nombre categoria seleccionada
 
+    }
+    
+    //mostramos indicador de carga
+    func showIndicator(){
+        
+        indicator.center = self.view.center
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(indicator)
+        
+        indicator.startAnimating()
     }
 }

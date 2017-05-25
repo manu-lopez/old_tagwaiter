@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -190,19 +191,47 @@
         <!--ItemMenu-->
         <scene sceneID="ztG-yM-9zl">
             <objects>
-                <tableViewController title="ItemMenu" id="5gg-Jg-RiU" customClass="MenuCategorieVC" customModule="tagwaiter" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="n2p-Te-5YK">
+                <tableViewController storyboardIdentifier="ItemMenu" title="ItemMenu" id="5gg-Jg-RiU" customClass="MenuCategorieVC" customModule="tagwaiter" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="231" sectionHeaderHeight="28" sectionFooterHeight="28" id="n2p-Te-5YK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fwB-e2-Coh" customClass="ItemMenu" customModule="tagwaiter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemMenu" rowHeight="231" id="fwB-e2-Coh" customClass="ItemMenu" customModule="tagwaiter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="231"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fwB-e2-Coh" id="ynw-qo-hRG">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ndj-9G-Ox6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="191"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaF-DY-5Jr">
+                                            <rect key="frame" x="0.0" y="189" width="375" height="42"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="42" id="Rue-5u-MD3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eaF-DY-5Jr" firstAttribute="trailing" secondItem="Ndj-9G-Ox6" secondAttribute="trailing" id="3Dn-0x-59v"/>
+                                        <constraint firstItem="Ndj-9G-Ox6" firstAttribute="leading" secondItem="ynw-qo-hRG" secondAttribute="leading" id="Mn2-5u-MUl"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ndj-9G-Ox6" secondAttribute="trailing" id="l7Y-oP-SZq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="eaF-DY-5Jr" secondAttribute="bottom" constant="-8.5" id="lbA-wM-dwk"/>
+                                        <constraint firstItem="Ndj-9G-Ox6" firstAttribute="top" secondItem="ynw-qo-hRG" secondAttribute="top" id="q03-Tu-h8f"/>
+                                        <constraint firstItem="eaF-DY-5Jr" firstAttribute="leading" secondItem="Ndj-9G-Ox6" secondAttribute="leading" id="rW8-em-AHG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ndj-9G-Ox6" secondAttribute="bottom" constant="31.5" id="vbF-BU-T8d"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="ProductImg" destination="Ndj-9G-Ox6" id="WOf-rj-Xzj"/>
+                                    <outlet property="ProductName" destination="eaF-DY-5Jr" id="SiJ-9j-SLl"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -213,7 +242,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXM-lf-K6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4838" y="139"/>
+            <point key="canvasLocation" x="4837.6000000000004" y="138.98050974512745"/>
         </scene>
         <!--Destacados-->
         <scene sceneID="oXP-Zn-uRE">
@@ -254,6 +283,7 @@
                 <tabBarController storyboardIdentifier="Inicio" automaticallyAdjustsScrollViewInsets="NO" id="4dE-pv-ftf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="2Af-6r-D8l">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>

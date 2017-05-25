@@ -10,6 +10,7 @@ import UIKit
 import AlamofireObjectMapper
 import Alamofire
 
+
 class MenuCategorieVC: UITableViewController {
     
     let url = "http://api.disainin.com/foodtags/1/shop"
@@ -22,12 +23,16 @@ class MenuCategorieVC: UITableViewController {
     var categories = [Category]()
     var nameItems = [String]()
     var numItems = 0
+    var paths = [String]()
     
+    var indicator = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = categorieName
+        
+        showIndicator()
         
         Alamofire.request(url, headers: header).responseObject { (response: DataResponse<Shop>) in
             
@@ -39,7 +44,9 @@ class MenuCategorieVC: UITableViewController {
                     self.numItems = (categorie.items?.count)!
                     for items in categorie.items!{
                         self.nameItems.append(items.name!)
+                        self.paths.append("http://media.disainin.com/tagwaiter/images/w500h500/\(items.imagePathName!)")
                     }
+                    self.indicator.stopAnimating()
                 }
             }
             
@@ -52,11 +59,25 @@ class MenuCategorieVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("ItemMenu", owner: self, options: nil)?.first as! ItemMenu
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemMenu", for: indexPath) as! ItemMenu
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        
+        imageView.sd_setImage(with: URL(string: paths[indexPath.row]))
         
         cell.ProductName.text = nameItems[indexPath.row]
         
         return cell
+    }
+    
+    //mostramos indicador de carga
+    func showIndicator(){
+        
+        indicator.center = self.view.center
+        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        view.addSubview(indicator)
+        
+        indicator.startAnimating()
     }
     
 }
