@@ -25,26 +25,30 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var picker1: UIPickerView!
     @IBOutlet var picker2: UIPickerView!
     
+    
     @IBAction func orderButton(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         picker1.delegate = self
         picker2.delegate = self
         
         labelModal.text = item.name
         
-//        var count = item.price?.count
-//
-//        for i in  0...count!{
-//            size1.text = "\(sizes[(item.price?[i].sizeId)!]!) - \((item.price?[i].price)!) €"
-//            size2.text = "\(sizes[(item.price?[i].sizeId)!]!) - \((item.price?[i].price)!) €"
-//        }
         
-        size1.text = "\(sizes[(item.price?[0].sizeId)!]!) - \((item.price?[0].price)!) €"
-        size2.text = "\(sizes[(item.price?[1].sizeId)!]!) - \((item.price?[1].price)!) €"
+        if item.price?.count == 1 {
+            size2.isHidden = true
+            picker2.isHidden = true
+            
+            size1.text = "\(sizes[(item.price?[0].sizeId)!]!) - \((item.price?[0].price)!) €"
+        } else {
+            size1.text = "\(sizes[(item.price?[0].sizeId)!]!) - \((item.price?[0].price)!) €"
+            size2.text = "\(sizes[(item.price?[1].sizeId)!]!) - \((item.price?[1].price)!) €"
+        }
+        
         
         imgModal.sd_setImage(with: URL(string: "http://media.disainin.com/tagwaiter/images/w264h264/\(item.imagePathName!)"))
         

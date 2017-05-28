@@ -20,7 +20,6 @@ class MenuVC: UITableViewController {
     ]
 
     
-    
     var categories = [Category]() //Objeto con todos los datos de las categorias
     
     var categorieSelected: Category! //objeto con la categoria que pasamos a siguiente view

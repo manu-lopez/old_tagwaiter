@@ -15,3 +15,9 @@ class ItemMenu: UITableViewCell {
     @IBOutlet weak var ProductName: UILabel!
     
 }
+
+class PromoItemMenu: UITableViewCell{
+    
+    @IBOutlet var ProductImg: UIView!
+    @IBOutlet var ProductoName: UILabel!
+}

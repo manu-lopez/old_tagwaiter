@@ -24,7 +24,11 @@ class MenuCategorieVC: UITableViewController {
         
         //se cogen los tamaños de las categorias !!FALLA!!
         for a in categorie.sizes!{
+            if a.dimension == nil {
+             sizes[a.id!] = "Normal"
+            }else {
             sizes[a.id!] = a.dimension!
+            }
         }
         
         //Colocamos el nombre de la categoria
