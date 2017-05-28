@@ -15,19 +15,20 @@ class MenuVC: UITableViewController {
     //Cabezera y URL
     let url = "http://api.disainin.com/foodtags/1/shop"
     let header: HTTPHeaders = [
-        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
+        //        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
+        "Authorization": "fd35d0f4261c3f62ae12040a798b0ba3"
     ]
+
     
     
     var categories = [Category]() //Objeto con todos los datos de las categorias
-    var numCategories = 0 //Cantidad de categorias que tiene
-    var categorieName = [String]() //Conjunto de categorias del lugar
-    var nameSelected = "" //Nombre categoria que pasamos a otra view
-    var idSelected = 0 //Id categoria seleccionada
+    
+    var categorieSelected: Category! //objeto con la categoria que pasamos a siguiente view
     
     var indicator = UIActivityIndicatorView()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
         showIndicator()
@@ -36,19 +37,7 @@ class MenuVC: UITableViewController {
             
             let shop = response.result.value
             self.categories = (shop?.categories)!
-            self.numCategories = (shop?.categories?.count)!
             
-            
-            for categorie in self.categories{ //recorremos las distintas categorias
-                for data in categorie.name!{ //recorremos los datos de una categoria
-                    // si el lenguaje es el mismo que el de nuestro dispositivo, nos muestra el nombre en ese idioma
-                    if data.language == UserDefaults.standard.value(forKey: "lang") as? String{
-                        //guardamos los nombres en un array para mostralos luego
-                        self.categorieName.append(data.text!)
-                    
-                    }
-                }
-            }
             
             self.indicator.stopAnimating()
             
@@ -57,35 +46,45 @@ class MenuVC: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numCategories
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return self.categories.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        var name = [String]()
         
-        cell.textLabel?.text = categorieName[indexPath.row]
-        
+        for categorie in categories {
+            for item in categorie.name!{
+                if item.language == UserDefaults.standard.value(forKey: "lang") as? String{
+                    name.append(item.text!)
+                }
+            }
+        }
+        cell.textLabel?.text = name[indexPath.row]
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.nameSelected = categorieName[indexPath.row]
-        self.idSelected = categories[indexPath.row].id!
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.categorieSelected = categories[indexPath.row]
+        
         
         performSegue(withIdentifier: "sendCategorieID", sender: nil)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
         let view = segue.destination as! MenuCategorieVC
         
-        view.categorieID = idSelected //ID categoria seleccionada
-        view.categorieName = nameSelected //Nombre categoria seleccionada
-
+        view.categorie = categorieSelected
     }
     
     //mostramos indicador de carga
-    func showIndicator(){
+    func showIndicator()
+    {
         
         indicator.center = self.view.center
         indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray

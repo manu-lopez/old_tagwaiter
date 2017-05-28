@@ -11,73 +11,61 @@ import AlamofireObjectMapper
 import Alamofire
 
 
-class MenuCategorieVC: UITableViewController {
+class MenuCategorieVC: UITableViewController {    
+    var categorie: Category!
+    var items = [Item]()
+    var sizes = [Int:String]()
     
-    let url = "http://api.disainin.com/foodtags/1/shop"
-    let header: HTTPHeaders = [
-        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
-    ]
+    var item: Item! //objecto item seleccionado para enviar
     
-    var categorieID = 0
-    var categorieName = ""
-    var categories = [Category]()
-    var nameItems = [String]()
-    var numItems = 0
-    var paths = [String]()
-    
-    var indicator = UIActivityIndicatorView()
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         
-        self.title = categorieName
-        
-        showIndicator()
-        
-        Alamofire.request(url, headers: header).responseObject { (response: DataResponse<Shop>) in
-            
-            let shop = response.result.value
-            self.categories = (shop?.categories)!
-            
-            for categorie in self.categories{
-                if categorie.id == self.categorieID{
-                    self.numItems = (categorie.items?.count)!
-                    for items in categorie.items!{
-                        self.nameItems.append(items.name!)
-                        self.paths.append("http://media.disainin.com/tagwaiter/images/w500h500/\(items.imagePathName!)")
-                    }
-                    self.indicator.stopAnimating()
-                }
-            }
-            
-            self.tableView.reloadData()
+        //se cogen los tamaños de las categorias !!FALLA!!
+        for a in categorie.sizes!{
+            sizes[a.id!] = a.dimension!
         }
+        
+        //Colocamos el nombre de la categoria
+        for i in categorie.name!{
+            if i.language == UserDefaults.standard.value(forKey: "lang") as? String{
+                self.title = i.text
+            }
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numItems
+        return (categorie.items?.count)!
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemMenu", for: indexPath) as! ItemMenu
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         
-        imageView.sd_setImage(with: URL(string: paths[indexPath.row]))
+        imageView.sd_setImage(with: URL(string: "http://media.disainin.com/tagwaiter/images/w500h500\((categorie.items?[indexPath.row].imagePathName)!)"))
         
-        cell.ProductName.text = nameItems[indexPath.row]
+        cell.ProductName.text = categorie.items?[indexPath.row].name!
         
         return cell
     }
     
-    //mostramos indicador de carga
-    func showIndicator(){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        self.item = categorie.items?[indexPath.row]
         
-        indicator.center = self.view.center
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(indicator)
+        performSegue(withIdentifier: "sendItemID", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let view = segue.destination as! ModalVC
         
-        indicator.startAnimating()
+        view.item = item //Objeto item seleccionado
+        view.sizes = sizes //Medidas de la categoria seleccionada
     }
     
 }
