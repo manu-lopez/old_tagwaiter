@@ -5,22 +5,12 @@
 //  Created by Manu on 23/5/17.
 //  Copyright © 2017 Manu. All rights reserved.
 //
-import Foundation
-import ObjectMapper
+import RealmSwift
 
-class SessionOrder: Mappable{
+class SessionOrder: Object{
     
     var date: Double?
     var visible: Bool?
-    var items: Array<SessionOrderItem>?
+    var items = List<SessionOrderItem>()
     
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        date        <- map["date"]
-        visible     <- map["visible"]
-        items       <- map["items"]
-    }
 }

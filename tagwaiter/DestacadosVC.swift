@@ -15,8 +15,7 @@ class DestacadosVC: UITableViewController {
     //Cabezera y URL
     let url = "http://api.disainin.com/foodtags/1/shop"
     let header: HTTPHeaders = [
-        //        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
-        "Authorization": "fd35d0f4261c3f62ae12040a798b0ba3"
+                "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
     ]
     
     var promoItems = [Item]()
@@ -24,6 +23,8 @@ class DestacadosVC: UITableViewController {
     
     var sizes = [Int:String]()
     var item: Item!
+    var categorieSelected = [Int]()
+    var categorieID = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class DestacadosVC: UITableViewController {
                 for item in categorie.items!{
                     if item.isPromo == true{
                         self.promoItems.append(item)
+                        self.categorieSelected.append(categorie.id!)
                     }
                 }
                 for i in categorie.sizes!{
@@ -95,6 +97,7 @@ class DestacadosVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.item = promoItems[indexPath.row]
+        self.categorieID = categorieSelected[indexPath.row]
         
         performSegue(withIdentifier: "sendItemID", sender: nil)
 
@@ -107,6 +110,7 @@ class DestacadosVC: UITableViewController {
         
         view.item = item //Objeto item seleccionado
         view.sizes = sizes //Medidas de la categoria seleccionada
+        view.categorieID = categorieID
     }
 
 

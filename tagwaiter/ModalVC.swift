@@ -9,12 +9,14 @@
 import UIKit
 import AlamofireObjectMapper
 import Alamofire
+import RealmSwift
 
 class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var item: Item!
     var sizes = [Int:String]()
-    var quantity = ["1","2","3","4","5","6","7","8","9","10"]
+    var categorieID = 0
+    var quantity = ["0","1","2","3","4","5","6","7","8","9","10"]
     
     @IBOutlet var imgModal: UIImageView!
     @IBOutlet var labelModal: UILabel!
@@ -25,9 +27,11 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var picker1: UIPickerView!
     @IBOutlet var picker2: UIPickerView!
     
+    var sesionO = SessionOrder()
+    var sesionOI = SessionOrderItem()
+    var sesionOTS1 = SessionOrderItemSize()
+    var sesionOTS2 = SessionOrderItemSize()
     
-    @IBAction func orderButton(_ sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +58,17 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //SessionOrderItemSizes
+        if pickerView == picker1{
+            sesionOTS1.sizeId = (item.price?[0].sizeId)!
+            sesionOTS1.quantity = Int(quantity[row])!
+        }else if pickerView == picker2{
+            sesionOTS2.sizeId = (item.price?[1].sizeId)!
+            sesionOTS2.quantity = Int(quantity[row])!
+        }
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -76,12 +91,52 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         return quantity[row]
     }
     
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        
-//    }
+    @IBAction func sendOrder(_ sender: UIButton) {
+        
+        if sesionOTS1.quantity == 0 && sesionOTS2.quantity == 0{
+            alertNoQuantity()
+        } else {
+            let realm = try! Realm()
+            
+            //SessionOrderItem
+            sesionOI.categoryId = categorieID
+            sesionOI.observations = ""
+            sesionOI.itemId = item.id!
+            sesionOI.sizes.append(sesionOTS1)
+            sesionOI.sizes.append(sesionOTS2)
+            
+            //SessionOrder
+            sesionO.items.append(sesionOI)
+            sesionO.visible = true
+            sesionO.date = Double(NSDate().timeIntervalSince1970)
+            
+            //Session
+            sesion.orders.append(sesionO)
+            sesion.token = "\(UserDefaults.standard.value(forKey: "token")!)"
+            
+            print("4 ->\(sesion)")
+            
+            try! realm.write{
+                realm.add(sesion)
+                print("SUCESS")
+                close()
+            }
+        }
+    }
+    
     
     @IBAction func closeModal(_ sender: UIButton) {
+        close()
+    }
+    
+    func close(){
         dismiss(animated: true, completion: nil)
     }
-
+    
+    func alertNoQuantity(){
+        let alert = UIAlertController(title: "Cantidad erronea", message: "Necesita añadir alguna cantidad para poder pedir", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

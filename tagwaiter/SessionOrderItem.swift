@@ -5,23 +5,13 @@
 //  Created by Manu on 23/5/17.
 //  Copyright © 2017 Manu. All rights reserved.
 //
-import Foundation
-import ObjectMapper
+import RealmSwift
 
-class SessionOrderItem: Mappable{
+class SessionOrderItem: Object{
     
-    var categoryId, itemId: Int?
+    var categoryId = 0
+    var itemId = 0
     var observations: String?
-    var sizes: Array<SessionOrderItemSize>?
+    var sizes = List<SessionOrderItemSize>()
     
-    required init?(map: Map){
-        
-    }
-    
-    func mapping(map: Map) {
-        categoryId      <- map["categoryId"]
-        itemId          <- map["itemId"]
-        observations    <- map["observations"]
-        sizes           <- map["sizes"]
-    }
 }

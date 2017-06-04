@@ -8,8 +8,8 @@
 
 import AVFoundation
 import UIKit
-import CoreLocation //obtener localizacion usuario
-import Alamofire //hacer consultas al servidor
+import CoreLocation
+import Alamofire
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CLLocationManagerDelegate {
     
@@ -185,13 +185,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         //obtenemos el lenguaje del móvil, para mostrar los textos correspondientes
                         UserDefaults.standard.set(NSLocale.current.identifier, forKey: "lang")
                         
+                        //Creamos la sesion
+                        var sesion = Session()
+                        
+                        
                         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                         let inicioVC = storyBoard.instantiateViewController(withIdentifier: "Inicio")
                         self.present(inicioVC, animated: true, completion: nil)
                         
+                        
                     } else {
                         
-                        let alert = UIAlertController(title: "No se ha podido conecctar", message: "No se ha podido conectar, puede que la mesa esté ocupada", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "No se ha podido conectar", message: "No se ha podido conectar, puede que la mesa esté ocupada", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Probar de nuevo", style: .default, handler: self.novalid))
                         
                         self.present(alert, animated: true, completion: nil)

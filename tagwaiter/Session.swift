@@ -5,23 +5,13 @@
 //  Created by Manu on 23/5/17.
 //  Copyright © 2017 Manu. All rights reserved.
 //
-import Foundation
-import ObjectMapper
+import RealmSwift
 
-class Session: Mappable{
+class Session: Object{
     
-    var dateStart, dateEnd: Double?
+    var dateStart = Double(NSDate().timeIntervalSince1970)
+    var dateEnd = 0
     var token: String?
-    var orders: Array<SessionOrder>?
+    var orders =  List<SessionOrder>()
     
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        dateStart   <- map["dateStart"]
-        dateEnd     <- map["dateEnd"]
-        token       <- map["token"]
-        orders      <- map["orders"]
-    }
 }

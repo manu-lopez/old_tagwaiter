@@ -15,6 +15,7 @@ class MenuCategorieVC: UITableViewController {
     var categorie: Category!
     var items = [Item]()
     var sizes = [Int:String]()
+    var categorieSelected = 0
     
     var item: Item! //objecto item seleccionado para enviar
     
@@ -22,7 +23,7 @@ class MenuCategorieVC: UITableViewController {
     {
         super.viewDidLoad()
         
-        //se cogen los tamaños de las categorias !!FALLA!!
+        //se cogen los tamaños de las categorias
         for a in categorie.sizes!{
             if a.dimension == nil {
              sizes[a.id!] = "Normal"
@@ -36,6 +37,7 @@ class MenuCategorieVC: UITableViewController {
             if i.language == UserDefaults.standard.value(forKey: "lang") as? String{
                 self.title = i.text
             }
+            self.categorieSelected = categorie.id!
         }
         
     }
@@ -70,6 +72,7 @@ class MenuCategorieVC: UITableViewController {
         
         view.item = item //Objeto item seleccionado
         view.sizes = sizes //Medidas de la categoria seleccionada
+        view.categorieID = categorieSelected
     }
     
 }

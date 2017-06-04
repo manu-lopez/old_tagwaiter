@@ -15,11 +15,9 @@ class MenuVC: UITableViewController {
     //Cabezera y URL
     let url = "http://api.disainin.com/foodtags/1/shop"
     let header: HTTPHeaders = [
-        //        "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
-        "Authorization": "fd35d0f4261c3f62ae12040a798b0ba3"
+                "Authorization": "\(UserDefaults.standard.value(forKey: "token")!)"
     ]
 
-    
     var categories = [Category]() //Objeto con todos los datos de las categorias
     
     var categorieSelected: Category! //objeto con la categoria que pasamos a siguiente view
@@ -69,7 +67,6 @@ class MenuVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.categorieSelected = categories[indexPath.row]
-        
         
         performSegue(withIdentifier: "sendCategorieID", sender: nil)
     }

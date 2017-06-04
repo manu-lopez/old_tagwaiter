@@ -5,19 +5,11 @@
 //  Created by Manu on 23/5/17.
 //  Copyright © 2017 Manu. All rights reserved.
 //
-import Foundation
-import ObjectMapper
+import RealmSwift
 
-class SessionOrderItemSize: Mappable{
+class SessionOrderItemSize: Object{
     
-    var sizeId, quantity: Int?
+    var sizeId = 0
+    var quantity = 0
     
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        sizeId      <- map["sizeId"]
-        quantity    <- map["quantity"]
-    }
 }

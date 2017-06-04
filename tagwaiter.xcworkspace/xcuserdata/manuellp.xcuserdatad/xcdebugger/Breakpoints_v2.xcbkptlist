@@ -2,4 +2,54 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tagwaiter/ModalVC.swift"
+            timestampString = "518237788.97706"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "sendOrder(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tagwaiter.ModalVC.sendOrder (__ObjC.UIButton) -&gt; ()"
+                  moduleName = "tagwaiter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manuellp/XcodeProjects/tagwaiter/tagwaiter/ModalVC.swift"
+                  timestampString = "518238234.079655"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "2812">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tagwaiter.ModalVC.(sendOrder (__ObjC.UIButton) -&gt; ()).(closure #1)"
+                  moduleName = "tagwaiter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/manuellp/XcodeProjects/tagwaiter/tagwaiter/ModalVC.swift"
+                  timestampString = "518238234.082617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
