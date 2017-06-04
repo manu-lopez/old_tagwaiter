@@ -10,6 +10,7 @@ import AVFoundation
 import UIKit
 import CoreLocation
 import Alamofire
+import RealmSwift
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CLLocationManagerDelegate {
     
@@ -19,7 +20,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     
     let locationManager = CLLocationManager()
-    var currentLocation: CLLocation!
+    var currentLocation = CLLocation()
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -44,19 +45,16 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Location
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+            
         //opciones boton
         sendQRButton.isEnabled = false
         sendQRButton.alpha = 1
         sendQRButton.backgroundColor = UIColor.black
         sendQRButton.setTitle("Escanea un QR", for: .normal)
-
-        
-        //Location
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-        currentLocation = locationManager.location
 
         
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
@@ -154,7 +152,20 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         sendQRButton.backgroundColor = UIColor.blue
         sendQRButton.setTitle("Escaneando...", for: .normal)
         
-        verifyConnection(code: qrCode!, latitud: currentLocation.coordinate.latitude, longitud: currentLocation.coordinate.longitude)
+        do {
+            
+            locationManager.startUpdatingLocation()
+            currentLocation = locationManager.location!
+            
+            
+            verifyConnection(code: qrCode!, latitud: currentLocation.coordinate.latitude, longitud: currentLocation.coordinate.longitude)
+        } catch {
+            print("error")
+            let alert = UIAlertController(title: "Error", message: "Vuelva a intentarlo", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Probar de nuevo", style: .default, handler: self.novalid))
+        }
+        
+
     }
     
     func verifyConnection(code: String, latitud: Double, longitud: Double)
@@ -187,12 +198,18 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                         
                         //Creamos la sesion
                         var sesion = Session()
+                        var sesionOrder = SessionOrder()
                         
+                        let realm = try! Realm()
+                        
+                        try! realm.write {
+                            realm.add(sesion)
+                            realm.add(sesionOrder)
+                        }
                         
                         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
                         let inicioVC = storyBoard.instantiateViewController(withIdentifier: "Inicio")
                         self.present(inicioVC, animated: true, completion: nil)
-                        
                         
                     } else {
                         

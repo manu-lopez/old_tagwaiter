@@ -11,7 +11,11 @@ class Session: Object{
     
     var dateStart = Double(NSDate().timeIntervalSince1970)
     var dateEnd = 0
-    var token: String?
+    var token = (UserDefaults.standard.value(forKey: "token")! as! String)
     var orders =  List<SessionOrder>()
+    
+    override static func primaryKey() -> String? {
+        return "token"
+    }
     
 }

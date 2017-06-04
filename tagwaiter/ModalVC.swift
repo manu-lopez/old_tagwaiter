@@ -27,7 +27,8 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var picker1: UIPickerView!
     @IBOutlet var picker2: UIPickerView!
     
-    var sesionO = SessionOrder()
+    var updatedsesion = Session()
+//    var updatedsesionO = SessionOrder()
     var sesionOI = SessionOrderItem()
     var sesionOTS1 = SessionOrderItemSize()
     var sesionOTS2 = SessionOrderItemSize()
@@ -92,33 +93,44 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     @IBAction func sendOrder(_ sender: UIButton) {
+        let realm = try! Realm()
         
         if sesionOTS1.quantity == 0 && sesionOTS2.quantity == 0{
             alertNoQuantity()
         } else {
-            let realm = try! Realm()
-            
-            //SessionOrderItem
-            sesionOI.categoryId = categorieID
-            sesionOI.observations = ""
-            sesionOI.itemId = item.id!
-            sesionOI.sizes.append(sesionOTS1)
-            sesionOI.sizes.append(sesionOTS2)
-            
-            //SessionOrder
-            sesionO.items.append(sesionOI)
-            sesionO.visible = true
-            sesionO.date = Double(NSDate().timeIntervalSince1970)
-            
-            //Session
-            sesion.orders.append(sesionO)
-            sesion.token = "\(UserDefaults.standard.value(forKey: "token")!)"
-            
-            print("4 ->\(sesion)")
-            
             try! realm.write{
-                realm.add(sesion)
-                print("SUCESS")
+                
+                //SessionOrderItem
+                sesionOI.categoryId = categorieID
+                sesionOI.observations = ""
+                sesionOI.itemId = item.id!
+                
+                if sesionOTS1.quantity > 0 && sesionOTS2.quantity > 0 {
+                    sesionOI.sizes.append(sesionOTS1)
+                    sesionOI.sizes.append(sesionOTS2)
+                } else if sesionOTS1.quantity > 0 && sesionOTS2.quantity == 0{
+                    sesionOI.sizes.append(sesionOTS1)
+                } else {
+                    sesionOI.sizes.append(sesionOTS2)
+                }
+                
+                //SessionOrder
+
+                var token = (UserDefaults.standard.value(forKey: "token")! as! String)
+//                var updatedsesionO = realm.object(ofType: SessionOrder.self, forPrimaryKey: token)!
+                var updatedsesionO = realm.objects(SessionOrder.self).first!
+                
+                updatedsesionO.sesionID = (UserDefaults.standard.value(forKey: "token")! as! String)
+                updatedsesionO.items.append(sesionOI)
+                realm.add(updatedsesionO, update:true)
+                
+                //Session
+                updatedsesion.orders.append(updatedsesionO)
+                updatedsesion.token = "\(UserDefaults.standard.value(forKey: "token")!)"
+                
+                realm.add(updatedsesion, update: true)
+                
+                //cerramos el modal
                 close()
             }
         }

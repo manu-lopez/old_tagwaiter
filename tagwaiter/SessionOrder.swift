@@ -9,8 +9,12 @@ import RealmSwift
 
 class SessionOrder: Object{
     
-    var date: Double?
-    var visible: Bool?
+    var sesionID = (UserDefaults.standard.value(forKey: "token")! as! String)
+    var date = Int(NSDate().timeIntervalSince1970)
+    var visible = true
     var items = List<SessionOrderItem>()
     
+    override static func primaryKey() -> String? {
+        return "sesionID"
+    }
 }

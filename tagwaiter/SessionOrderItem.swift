@@ -11,7 +11,7 @@ class SessionOrderItem: Object{
     
     var categoryId = 0
     var itemId = 0
-    var observations: String?
+    var observations = ""
     var sizes = List<SessionOrderItemSize>()
     
 }
