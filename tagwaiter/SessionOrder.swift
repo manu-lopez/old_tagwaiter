@@ -28,7 +28,7 @@ class SessionOrder: Object, Mappable{
         if map.mappingType == .fromJSON{
             date <- map["date"]
             visible <- map["isVisible"]
-            items <- map["items"]
+            items <- (map["items"], ListTransform<SessionOrderItem>())
         } else {
             items >>> (map["items"], ListTransform<SessionOrderItem>())
             date >>> map["date"]

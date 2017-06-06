@@ -21,3 +21,7 @@ class PromoItemMenu: UITableViewCell{
     @IBOutlet var ProductImg: UIView!
     @IBOutlet var ProductoName: UILabel!
 }
+
+class CuentaItem: UITableViewCell{
+    @IBOutlet var info: UILabel!
+}

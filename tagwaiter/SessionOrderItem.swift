@@ -22,10 +22,10 @@ class SessionOrderItem: Object, Mappable{
     
     func mapping(map: Map) {
         if map.mappingType == .fromJSON{
-        categoryId <- map["categoryId"]
-        itemId <- map["itemId"]
-        observations <- map["observations"]
-        sizes <- map["sizes"]
+            categoryId <- map["categoryId"]
+            itemId <- map["itemId"]
+            observations <- map["observations"]
+            sizes <- (map["sizes"], ListTransform<SessionOrderItemSize>())
         } else {
             categoryId >>> map["categoryId"]
             itemId >>> map["itemId"]

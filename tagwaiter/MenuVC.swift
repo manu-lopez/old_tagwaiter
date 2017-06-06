@@ -89,11 +89,21 @@ class MenuVC: UITableViewController {
         
         indicator.startAnimating()
     }
+    
     @IBAction func callWaiter(_ sender: UIBarButtonItem) {
-        let realm = try! Realm()
-        
-        try! realm.write {
-            realm.deleteAll()
+        Alamofire.request("http://api.disainin.com/foodtags/1/action/call/start", headers: header).responseJSON { response in
+            if let resultado = response.result.value {
+                self.alertCallWaiter()
+            }
         }
     }
+    
+    func alertCallWaiter(){
+        let alert = UIAlertController(title: "Llamando al camarero", message: "El camarero le atendera en unos instantes", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    
 }

@@ -7,6 +7,7 @@
 //
 import RealmSwift
 import ObjectMapper
+import ObjectMapper_Realm
 
 class Session: Object, Mappable{
     
@@ -27,7 +28,7 @@ class Session: Object, Mappable{
         dateStart <- map["dateStart"]
         dateEnd <- map["dateEnd"]
         token <- map["token"]
-        orders <- map["orders"]
+        orders <- (map["orders"], ListTransform<SessionOrder>())
     }
     
 }

@@ -27,6 +27,7 @@
 		DE3EEC851ED3A7E900BC2466 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EEC841ED3A7E900BC2466 /* Shop.swift */; };
 		DE3EEC871ED3A87D00BC2466 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EEC861ED3A87D00BC2466 /* Site.swift */; };
 		DE3EEC891ED3A90D00BC2466 /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3EEC881ED3A90D00BC2466 /* Translation.swift */; };
+		DE4889181EE6C7B100B01883 /* CuentaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4889171EE6C7B100B01883 /* CuentaVC.swift */; };
 		DE5C99671EDAF5D000F83E06 /* DestacadosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5C99661EDAF5D000F83E06 /* DestacadosVC.swift */; };
 		DE99DF3B1ED9E1A3004604A2 /* ModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99DF3A1ED9E1A3004604A2 /* ModalVC.swift */; };
 		DE99DF3E1ED9E8A3004604A2 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99DF3D1ED9E8A3004604A2 /* DesignableView.swift */; };
@@ -83,6 +84,7 @@
 		DE3EEC841ED3A7E900BC2466 /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		DE3EEC861ED3A87D00BC2466 /* Site.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		DE3EEC881ED3A90D00BC2466 /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		DE4889171EE6C7B100B01883 /* CuentaVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CuentaVC.swift; sourceTree = "<group>"; };
 		DE5C99661EDAF5D000F83E06 /* DestacadosVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestacadosVC.swift; sourceTree = "<group>"; };
 		DE99DF3A1ED9E1A3004604A2 /* ModalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalVC.swift; sourceTree = "<group>"; };
 		DE99DF3D1ED9E8A3004604A2 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				DE19C45C1EE539E900566D6E /* PedidoVC.swift */,
 				DE0677621EACC7A800A1CD60 /* ScannerViewController.swift */,
 				DEA133C31E8C6D8F000D36BB /* Main.storyboard */,
+				DE4889171EE6C7B100B01883 /* CuentaVC.swift */,
 				DEA133C61E8C6D8F000D36BB /* Assets.xcassets */,
 			);
 			path = tagwaiter;
@@ -573,6 +576,7 @@
 				DE3EEC871ED3A87D00BC2466 /* Site.swift in Sources */,
 				0325C4041ED6495B00122B6D /* ItemMenu.swift in Sources */,
 				DEA133C01E8C6D8F000D36BB /* AppDelegate.swift in Sources */,
+				DE4889181EE6C7B100B01883 /* CuentaVC.swift in Sources */,
 				0325C4071ED64BE400122B6D /* MenuCategorieVC.swift in Sources */,
 				DE3EEC7D1ED3A40F00BC2466 /* Session.swift in Sources */,
 				DE3EEC751ED39CA900BC2466 /* CategorySize.swift in Sources */,
