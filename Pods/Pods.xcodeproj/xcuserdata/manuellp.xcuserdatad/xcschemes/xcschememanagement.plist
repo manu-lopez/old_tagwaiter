@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ObjectMapper+Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,6 +57,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>13599D435BF27EAE2E9844821783ECB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1BECF98F5D80315F4CA333AB7B4CB512</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1FB86732600BA672692C970DAB630EDB</key>
 		<dict>
 			<key>primary</key>
@@ -62,12 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C29E19F4749F589B01D97B859CA0FE1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8860B6EAB2D120F4E8D235E8E152B3CF</key>
+		<key>3F09448D0BBD217E6E537CCF9DC7E63C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A2D60165C0D1AD1D8A8A4611576D147</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A04F7A186BAAE73600CB68C7A9F65141</key>
+		<key>B4BC8D162B1B45CF244C641528603EA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EFB888EB0DEA1B265AAD1E2C0A681E56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F89D253FC65103549FC6B0E27B07A1E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

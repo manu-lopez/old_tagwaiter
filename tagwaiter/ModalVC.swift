@@ -13,6 +13,8 @@ import RealmSwift
 
 class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    let realm = try! Realm()
+    
     var item: Item!
     var sizes = [Int:String]()
     var categorieID = 0
@@ -28,7 +30,6 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet var picker2: UIPickerView!
     
     var updatedsesion = Session()
-//    var updatedsesionO = SessionOrder()
     var sesionOI = SessionOrderItem()
     var sesionOTS1 = SessionOrderItemSize()
     var sesionOTS2 = SessionOrderItemSize()
@@ -93,7 +94,7 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     @IBAction func sendOrder(_ sender: UIButton) {
-        let realm = try! Realm()
+        var token = (UserDefaults.standard.value(forKey: "token")! as! String)
         
         if sesionOTS1.quantity == 0 && sesionOTS2.quantity == 0{
             alertNoQuantity()
@@ -108,19 +109,25 @@ class ModalVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
                 if sesionOTS1.quantity > 0 && sesionOTS2.quantity > 0 {
                     sesionOI.sizes.append(sesionOTS1)
                     sesionOI.sizes.append(sesionOTS2)
+                    
+                    realm.add(sesionOTS1)
+                    realm.add(sesionOTS2)
                 } else if sesionOTS1.quantity > 0 && sesionOTS2.quantity == 0{
                     sesionOI.sizes.append(sesionOTS1)
+                    
+                    realm.add(sesionOTS1)
                 } else {
                     sesionOI.sizes.append(sesionOTS2)
+                    
+                    realm.add(sesionOTS2)
                 }
                 
-                //SessionOrder
-
-                var token = (UserDefaults.standard.value(forKey: "token")! as! String)
-//                var updatedsesionO = realm.object(ofType: SessionOrder.self, forPrimaryKey: token)!
-                var updatedsesionO = realm.objects(SessionOrder.self).first!
+                realm.add(sesionOI)
                 
-                updatedsesionO.sesionID = (UserDefaults.standard.value(forKey: "token")! as! String)
+                
+                //SessionOrder
+                var updatedsesionO = realm.object(ofType: SessionOrder.self, forPrimaryKey: token)!
+                
                 updatedsesionO.items.append(sesionOI)
                 realm.add(updatedsesionO, update:true)
                 

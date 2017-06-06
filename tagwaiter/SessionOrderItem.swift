@@ -6,12 +6,31 @@
 //  Copyright © 2017 Manu. All rights reserved.
 //
 import RealmSwift
+import ObjectMapper
+import ObjectMapper_Realm
 
-class SessionOrderItem: Object{
+class SessionOrderItem: Object, Mappable{
     
-    var categoryId = 0
-    var itemId = 0
-    var observations = ""
+    dynamic var categoryId = 0
+    dynamic var itemId = 0
+    dynamic var observations = ""
     var sizes = List<SessionOrderItemSize>()
     
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        if map.mappingType == .fromJSON{
+        categoryId <- map["categoryId"]
+        itemId <- map["itemId"]
+        observations <- map["observations"]
+        sizes <- map["sizes"]
+        } else {
+            categoryId >>> map["categoryId"]
+            itemId >>> map["itemId"]
+            observations >>> map["observations"]
+            sizes >>> (map["sizes"], ListTransform<SessionOrderItemSize>())
+        }
+    }
 }

@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireObjectMapper
 import Alamofire
+import RealmSwift
 
 class MenuVC: UITableViewController {
     
@@ -87,5 +88,12 @@ class MenuVC: UITableViewController {
         view.addSubview(indicator)
         
         indicator.startAnimating()
+    }
+    @IBAction func callWaiter(_ sender: UIBarButtonItem) {
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.deleteAll()
+        }
     }
 }

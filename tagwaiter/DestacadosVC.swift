@@ -43,11 +43,11 @@ class DestacadosVC: UITableViewController {
                         self.categorieSelected.append(categorie.id!)
                     }
                 }
-                for i in categorie.sizes!{
-                    if i.dimension == nil {
-                        self.sizes[i.id!] = "Normal"
-                    } else {
-                        self.sizes[i.id!] = i.dimension!
+                for a in categorie.sizes!{
+                    if a.dimension == nil {
+                        self.sizes[a.id!] = "Normal"
+                    }else {
+                        self.sizes[a.id!] = a.dimension!
                     }
                 }
             }

@@ -8,6 +8,7 @@ target 'tagwaiter' do
   pod 'AlamofireObjectMapper', '~> 4.0'
   pod 'SDWebImage', '~>3.8'
   pod 'RealmSwift'
+  pod 'ObjectMapper+Realm'
 
   # Pods for tagwaiter
 
